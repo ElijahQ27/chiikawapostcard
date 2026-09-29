@@ -180,30 +180,24 @@
   }
 
   .grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
   }
-  @media (min-width: 700px) {
-    .grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px 28px;
-    }
-  }
-  @media (min-width: 1100px) {
-    .grid {
-      gap: 40px 36px;
-    }
+  .grid .card {
+    width: 100%;
+    max-width: 380px;
   }
 
   .card {
     background: var(--card-bg);
-    border-radius: 32px;
-    padding: 18px;
+    border-radius: 26px;
+    padding: 14px;
     box-shadow: 0 12px 0 rgba(0,0,0,0.06), 0 20px 30px -10px rgba(0,0,0,0.2);
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 10px;
     animation: popIn 0.5s ease backwards;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
     border: 2px solid rgba(255,255,255,0.5);
@@ -224,9 +218,8 @@
 
   .frame {
     position: relative;
-    border-radius: 24px;
+    border-radius: 18px;
     overflow: hidden;
-    aspect-ratio: 4 / 5;
     background: linear-gradient(160deg, var(--pink) 0%, var(--lavender) 100%);
     display: flex;
     align-items: center;
@@ -240,11 +233,10 @@
     box-shadow: inset 0 -6px 0 rgba(0,0,0,0.05), 0 8px 20px rgba(0,0,0,0.15);
   }
   .frame img {
-    width: 100%; height: 100%; object-fit: cover; display: block;
-    transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
+    width: 100%; height: auto; display: block;
   }
-  .card:hover .frame img { transform: scale(1.06); }
-  .frame.placeholder .mascot { width: 46%; }
+  .frame.placeholder { aspect-ratio: 3 / 2; }
+  .frame.placeholder .mascot { width: 38%; }
 
   .badge {
     position: absolute;
@@ -264,13 +256,13 @@
   .card-title {
     font-family: 'Baloo 2', sans-serif;
     font-weight: 700;
-    font-size: 22px;
-    margin: 2px 6px 0;
+    font-size: 18px;
+    margin: 0 6px;
     color: var(--plum);
   }
   .card-sub {
-    margin: -8px 6px 0;
-    font-size: 15px;
+    margin: -6px 6px 0;
+    font-size: 13px;
     opacity: 0.7;
     font-weight: 600;
   }
@@ -278,10 +270,10 @@
     appearance: none;
     border: none;
     border-radius: 999px;
-    padding: 14px 20px;
+    padding: 9px 16px;
     font-family: 'Baloo 2', sans-serif;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
     background: var(--coral);
     color: white;
@@ -377,7 +369,7 @@
   @media (prefers-reduced-motion: reduce) {
     .dl-btn { transition: none; }
     .floaty, h1, .card, .modal img { animation: none !important; }
-    .card:hover, .card:hover .frame img, .dl-btn:hover { transform: none; }
+    .card:hover, .dl-btn:hover { transform: none; }
     .modal-close:hover { transform: none; }
     .floaty.island1, .floaty.island2 { animation: none; }
   }
